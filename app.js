@@ -9,13 +9,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", process.env.ORIGIN || "*");
     next();
   });
-// app.get('/',(req,res)=>{
-//     const u = req.query["u"];
-//   console.log(req);
-//     // const url = `https://cross-pass.herokuapp.com/${u}`;
 
-//     // request(url).pipe(res);
-// })
 app.get(':endpoint([\\/\\w\\.-]*)', function(req,res){
 
     let url = req.params.endpoint
@@ -28,5 +22,4 @@ app.get(':endpoint([\\/\\w\\.-]*)', function(req,res){
     })
 
 })
-//https://api.deezer.com/chart
 app.listen(port ,()=>console.log(`http://localhost:${port}`))
