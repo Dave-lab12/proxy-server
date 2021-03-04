@@ -10,10 +10,9 @@ app.use((req, res, next) => {
     next();
   });
 app.get('/',(req,res)=>{
-    const symbol = req.query["symbol"];
-    const range = req.query["range"];
-
-    const url = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${symbol}&types=quote,chart&range=${range}`;
+    const u = req.query["u"];
+  
+    const url = `https://cross-pass.herokuapp.com/${u}`;
 
     request(url).pipe(res);
 })
